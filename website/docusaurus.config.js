@@ -29,7 +29,7 @@ module.exports = {
     }
   }]],
   themeConfig: {
-    disableDarkMode: true,
+    // disableDarkMode: true,
     announcementBar: {
       id: 'support_ukraine',
       content:
@@ -44,7 +44,7 @@ module.exports = {
         alt: 'Draft.js Logo',
         src: 'img/draftjs-logo.svg'
       },
-      links: [{
+      items: [{
         to: 'docs/getting-started',
         label: 'Docs',
         position: 'right'
@@ -52,19 +52,20 @@ module.exports = {
         href: 'https://github.com/facebook/draft-js',
         label: 'GitHub',
         position: 'right'
-      }, ...fbInternalOnly([{
-        "to": "docs/fb/index",
-        "label": "FB Internal",
-        "position": "right"
-      }])]
+      }]
+      // }, ...fbInternalOnly([{
+      //   "to": "docs/fb/index",
+      //   "label": "FB Internal",
+      //   "position": "right"
+      // }])]
     },
-    algolia: {
-      apiKey: 'ae94c9e3ee00ea8edddd484adafc37cd',
-      indexName: 'draft-js'
-    },
-    googleAnalytics: {
-      trackingID: 'UA-44373548-19'
-    },
+    // algolia: {
+    //   apiKey: 'ae94c9e3ee00ea8edddd484adafc37cd',
+    //   indexName: 'draft-js'
+    // },
+    // googleAnalytics: {
+    //   trackingID: 'UA-44373548-19'
+    // },
     footer: {
       style: 'dark',
       links: [{

@@ -55,7 +55,6 @@
     "del": "^5.1.0",
     "es6-shim": "^0.35.5",
     "eslint": "^7.8.1",
-    "eslint-config-fbjs": "^3.1.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-fb-www": "^1.0.3",
@@ -82,8 +81,8 @@
     "react-test-renderer": "^16.0.0",
     "stats-webpack-plugin": "^0.7.0",
     "through2": "^4.0.2",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack-stream": "6.1.0"
+    "webpack-stream": "^7.0.0",
+    "webpack": "^5.99.9"
   },
   "devEngines": {
     "node": "14.x || 16.x",

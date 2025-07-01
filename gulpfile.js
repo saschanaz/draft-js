@@ -24,7 +24,7 @@ const rename = require('gulp-rename');
 const gulpUtil = require('gulp-util');
 const StatsPlugin = require('stats-webpack-plugin');
 const through = require('through2');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpackStream = require('webpack-stream');
 
 const paths = {
@@ -103,6 +103,7 @@ const buildDist = opts => {
       libraryTarget: 'umd',
       library: 'Draft',
     },
+    devtool: 'source-map',
     plugins: [
       new webpackStream.webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(
@@ -117,9 +118,9 @@ const buildDist = opts => {
       }),
     ],
   };
-  if (!opts.debug) {
-    webpackOpts.plugins.push(new UglifyJsPlugin());
-  }
+  // if (!opts.debug) {
+  //   webpackOpts.plugins.push(new UglifyJsPlugin());
+  // }
   const wpStream = webpackStream(webpackOpts, null, function(err, stats) {
     if (err) {
       throw new gulpUtil.PluginError('webpack', err);
@@ -254,8 +255,9 @@ exports.dev = function dev() {
 
 // Builds everything
 exports.default = gulp.series(
-  exports.check_dependencies,
+  // exports.check_dependencies,
   exports.clean,
   gulp.parallel(exports.modules, exports.flow),
-  gulp.parallel(exports.dist, exports.dist_min),
+  // gulp.parallel(exports.dist, exports.dist_min),
+  gulp.parallel(exports.dist),
 );
