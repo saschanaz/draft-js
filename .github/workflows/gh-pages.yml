@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  ci:
+  gh-pages:
     runs-on: ubuntu-latest
     strategy:
       matrix:
