@@ -216,9 +216,9 @@ exports.dist = gulp.series(exports.modules, exports.css, function outputDist() {
       }),
     )
     .pipe(derequire())
-    .pipe(
-      gulpif('*.js', header(COPYRIGHT_HEADER, {version: packageData.version})),
-    )
+    // .pipe(
+    //   gulpif('*.js', header(COPYRIGHT_HEADER, {version: packageData.version})),
+    // )
     .pipe(gulp.dest(paths.dist));
 });
 
