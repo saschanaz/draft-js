@@ -85,8 +85,16 @@
     "webpack": "^5.99.9"
   },
   "devEngines": {
-    "node": "22.x",
-    "npm": "10.x"
+    "runtime": {
+      "name": "node",
+      "version": ">=22.x",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=10.x",
+      "onFail": "error"
+    }
   },
   "jest": {
     "globals": {
