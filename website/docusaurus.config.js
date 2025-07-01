@@ -11,7 +11,7 @@ const {
 module.exports = {
   title: 'Draft.js',
   tagline: 'Rich Text Editor Framework for React',
-  url: 'https://draftjs.org',
+  url: 'https://saschanaz.github.io',
   baseUrl: '/draft-js/',
   organizationName: 'facebook',
   projectName: 'draft-js',
