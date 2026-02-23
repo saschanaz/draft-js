@@ -106,12 +106,10 @@ const buildDist = opts => {
     devtool: 'source-map',
     plugins: [
       new webpackStream.webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(
-          opts.debug ? 'development' : 'production',
-        ),
+        'process.env.NODE_ENV': 'development',
       }),
       new webpackStream.webpack.LoaderOptionsPlugin({
-        debug: opts.debug,
+        debug: true,
       }),
       new StatsPlugin(`../meta/bundle-size-stats/${opts.output}.json`, {
         chunkModules: true,
@@ -207,19 +205,21 @@ exports.flow = function flow() {
 
 // Builds for development
 exports.dist = gulp.series(exports.modules, exports.css, function outputDist() {
-  return gulp
-    .src('./lib/Draft.js')
-    .pipe(
-      buildDist({
-        debug: true,
-        output: 'Draft.js',
-      }),
-    )
-    .pipe(derequire())
-    // .pipe(
-    //   gulpif('*.js', header(COPYRIGHT_HEADER, {version: packageData.version})),
-    // )
-    .pipe(gulp.dest(paths.dist));
+  return (
+    gulp
+      .src('./lib/Draft.js')
+      .pipe(
+        buildDist({
+          debug: true,
+          output: 'Draft.js',
+        }),
+      )
+      .pipe(derequire())
+      // .pipe(
+      //   gulpif('*.js', header(COPYRIGHT_HEADER, {version: packageData.version})),
+      // )
+      .pipe(gulp.dest(paths.dist))
+  );
 });
 
 // Builds for production
